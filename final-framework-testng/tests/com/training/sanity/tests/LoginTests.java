@@ -21,13 +21,19 @@ public class LoginTests {
 	private String baseUrl;
 	private LoginPOM loginPOM;
 	private static Properties properties;
-	private ScreenShot screenShot;
+	//private ScreenShot screenShot;
 
 	@BeforeClass
-	public static void setUpBeforeClass() throws IOException {
+	public void setUpBeforeClass() throws IOException {
 		properties = new Properties();
 		FileInputStream inStream = new FileInputStream("./resources/others.properties");
 		properties.load(inStream);
+		driver = DriverFactory.getDriver(DriverNames.CHROME);
+		loginPOM = new LoginPOM(driver); 
+		baseUrl = properties.getProperty("baseURL");
+		//screenShot = new ScreenShot(driver); 
+		// open the browser 
+		driver.get(baseUrl);
 	}
 
 	@BeforeMethod
@@ -35,7 +41,7 @@ public class LoginTests {
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
 		loginPOM = new LoginPOM(driver); 
 		baseUrl = properties.getProperty("baseURL");
-		screenShot = new ScreenShot(driver); 
+		//screenShot = new ScreenShot(driver); 
 		// open the browser 
 		driver.get(baseUrl);
 	}
@@ -50,6 +56,6 @@ public class LoginTests {
 		loginPOM.sendUserName("admin");
 		loginPOM.sendPassword("admin@123");
 		loginPOM.clickLoginBtn(); 
-		screenShot.captureScreenShot("First");
+		//screenShot.captureScreenShot("First");
 	}
 }
