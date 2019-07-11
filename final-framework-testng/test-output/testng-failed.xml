@@ -3,13 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.training.sanity.tests.UniformLoginCheck">
+      <class name="com.training.sanity.tests.UniformMedium2">
         <methods>
-          <include name="tearDown"/>
-          <include name="deleteitem"/>
           <include name="setUpBeforeClass"/>
+          <include name="ProductsClick"/>
+          <include name="tearDown"/>
         </methods>
-      </class> <!-- com.training.sanity.tests.UniformLoginCheck -->
+      </class> <!-- com.training.sanity.tests.UniformMedium2 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

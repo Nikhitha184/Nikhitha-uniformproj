@@ -11,17 +11,17 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 
-import com.training.pom.UniformloginPOM;
+import com.training.pom.uniformMediumPOM;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
-public class UniformLoginCheck {
+public class uniformMedium{
 	
 	private WebDriver driver;
 	private String baseUrl;
 	
 	private static Properties properties;
-	private UniformloginPOM uniformloginPOM;
+	private uniformMediumPOM uniformMediumPOM;
 	//private ScreenShot screenShot;
 	
 
@@ -32,7 +32,7 @@ public class UniformLoginCheck {
 		FileInputStream inStream = new FileInputStream("./resources/others.properties");
 		properties.load(inStream);
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
-		uniformloginPOM=new UniformloginPOM(driver);
+		uniformMediumPOM =new uniformMediumPOM(driver);
 		baseUrl = properties.getProperty("baseURL");
 		//screenShot = new ScreenShot(driver); 
 		// open the browser 
@@ -50,25 +50,28 @@ public class UniformLoginCheck {
 
 	@Test(priority=1)
 	public void validLoginTest() {
-	uniformloginPOM.setName("admin");
-	uniformloginPOM.setpassword("admin@123");
-	uniformloginPOM.clickbutton();
+		uniformMediumPOM.setName("admin");
+		uniformMediumPOM.setpassword("admin@123");
+		uniformMediumPOM.clickbutton();
 	}
-	
+   
 	@Test(priority=2)
-	public void categoryClick() {
-	uniformloginPOM.clickMenu();
-	uniformloginPOM.clickCatalog();
-	uniformloginPOM.clickCategories();
-	}
+	public void ProductsClick() {
+		uniformMediumPOM.clickMenu();
+		uniformMediumPOM.clickCatalog();
+		uniformMediumPOM.clickProducts();
+		uniformMediumPOM.setProductName("Blazer Girls(7-8)");
+		uniformMediumPOM.clickButton();
+		uniformMediumPOM.setProductPrice("3000.0000");
+		uniformMediumPOM.clickButton();
+		uniformMediumPOM.setStatus("Enabled");
+		uniformMediumPOM.clickButton();
+		uniformMediumPOM.setModel("BLG-112");
+		uniformMediumPOM.clickButton();
+		uniformMediumPOM.setQuantity("100");
+		uniformMediumPOM.clickButton();
+		}
+      }
 	
-	@Test(priority=3)
-	public void deleteitem() {
-	uniformloginPOM.clickCheckbox();
-	uniformloginPOM.clickDeletebutton();
-	}
-	
-}
 
 
-  

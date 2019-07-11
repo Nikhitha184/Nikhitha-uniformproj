@@ -1,17 +1,15 @@
 package com.training.pom;
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class UniformloginPOM {
+public class UniformMediumPOM3 {
 	
 private WebDriver driver; 
 	
-	public UniformloginPOM(WebDriver driver) {
+	public UniformMediumPOM3(WebDriver driver) {
 		this.driver = driver; 
 		//Action act=new Action();
 		
@@ -21,9 +19,6 @@ private WebDriver driver;
 	
 	@FindBy(xpath="//input[@name='username']")
 	private WebElement userName; 
-	
-	
-	
 	
 	@FindBy(xpath="//input[@name='password']")
 	private WebElement password;
@@ -71,26 +66,42 @@ private WebDriver driver;
  	{
  		this.Categories.click();
  	}
-
  	
- 	@FindBy(xpath="(//input[@type='checkbox'])[3]")
- 	private WebElement Checkbox;
+ 	//@FindBy(xpath="//a[href='http://uniformm1.upskills.in/admin/index.php?route=catalog/category/edit&token=djjsMPhOFzi9Qw5vlD9fxhYt5S1prGL7&category_id=367']")
+    
+ 	@FindBy(xpath="//i[@class='fa fa-pencil']")
+ 	private WebElement clickEdit;
  	
- 	public void clickCheckbox()
+ 	public void clickEdit()
  	{
- 		this.Checkbox.click();
+ 		this.clickEdit.click();
  	}
-
- 	@FindBy(xpath="//i[@class='fa fa-trash-o']")
- 	private WebElement Deletebutton;
- 	 
- 	public void clickDeletebutton()
+ 	
+ 	@FindBy(xpath="//a[@href='#tab-data\']")
+ 	private WebElement clickDataTab;
+ 	
+ 	public void clickDataTab()
  	{
- 		this.Deletebutton.click();
-        driver.switchTo().alert().accept();
+ 		this.clickDataTab.click();
  	}
  	
+ 	@FindBy(xpath="//select[@id='input-status']")
+ 	private WebElement setStatus;
+ 	
+ 	public void setStatus(String pstatus)
+ 	{
+ 		this.setStatus.sendKeys(pstatus);
  	}
+ 	
+ 	@FindBy(xpath="//button[@type='submit']")
+ 	private WebElement clickSave;
+ 	
+ 	public void clickSave()
+ 	{
+ 		this.clickSave.click();
+ 	}
+ 	}
+ 	
+ 
 
- 	
-   
+
